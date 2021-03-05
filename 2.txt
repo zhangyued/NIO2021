@@ -1,0 +1,37 @@
+package com.zy.nio;
+
+import org.junit.Test;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.RandomAccessFile;
+import java.nio.ByteBuffer;
+import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+
+/**
+ * 一.通道(channel): 用于源节点与目标结点的连接，在Java NIO中负责缓冲区数据的传输，
+ * 本身不负责存储数据，因此需要配合缓冲区进行传输
+ *
+ * 二.通道主要实现类
+ * java.nio.channels.Channel 接口
+ *      |--FileChannel 专门操作本地文件的
+ *      |--SocketChannel 以下都用于网络传输
+ *      |--ServerSocketChannel
+ *      |--DatagramChannel
+ *
+ * 三.获取通道
+ * 1.Java针对支持通道的类提供getChannel()方法
+ * 本地IO：
+ * FileInputStream/FileOutputStream
+ * RandomAccessFile
+ * 网络IO：
+ * Socket
+ * ServerSocket
+ * DatagramSocket
+ * 2.在JDK1.7中的NIO.2针对各个通道提供一个静态方法open()
+ * 3.在JDK1.7中的NIO.2的Files工具类的newByteChannel()
+ *
+ * �
